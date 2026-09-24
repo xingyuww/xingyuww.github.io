@@ -7,18 +7,18 @@ import styles from './handoff.module.css';
 type ProjectKey = (typeof featuredProjects)[number]['key'];
 
 const readingRows = [
-  ['01', '问题', '前景遮挡如何影响观看'],
-  ['02', '资料', '来源、范围与证据'],
-  ['03', '实验', '观察、假设与修改'],
-  ['04', '复盘', '结论与下一步'],
+  ['01', '项目背景', '内容待补充'],
+  ['02', '表达对象', '内容待补充'],
+  ['03', '信息结构', '内容待补充'],
+  ['04', '阶段成果', '内容待补充'],
 ] as const;
 
 function ReadingLayer({ className }: { className: string }) {
   return (
     <div className={`${styles.readingLayer} ${className}`}>
       <div className={styles.readingHeading}>
-        <span>OBSERVATION / EVIDENCE</span>
-        <span>WORKSHOP LOG</span>
+        <span>YILIU / INFORMATION FLOW</span>
+        <span>READING MAP</span>
       </div>
       <div className={styles.readingRows}>
         {readingRows.map(([number, label, value]) => (
@@ -29,27 +29,25 @@ function ReadingLayer({ className }: { className: string }) {
           </p>
         ))}
       </div>
-      <strong className={styles.readingWord}>观画</strong>
+      <strong className={styles.readingWord}>忆流</strong>
     </div>
   );
 }
 
-const productionTracks = ['REFERENCE', 'LIGHT', 'TEST', 'REVIEW'];
-
-function ProductionBoard() {
+function MusicBoard() {
   return (
     <div className={styles.musicBoard}>
-      <div className={styles.musicScale}><span>INPUT</span><span>CHECK</span><span>REVISE</span><span>OUTPUT</span></div>
+      <div className={styles.musicScale}><span>00</span><span>08</span><span>16</span><span>24</span></div>
       <div className={styles.musicTracks}>
-        {productionTracks.map((track, index) => (
+        {[1, 2, 3, 4].map((track) => (
           <div className={styles.musicTrack} key={track}>
-            <span>0{index + 1} / {track}</span>
+            <span>TRACK 0{track}</span>
             <div><i /><i /><i /></div>
           </div>
         ))}
       </div>
       <i className={styles.musicPlayhead} />
-      <p className={styles.musicStatus}>PRODUCTION LOG / ITERATION TRACE</p>
+      <p className={styles.musicStatus}>COLLABORATIVE BUILD / DETAILS TO FOLLOW</p>
     </div>
   );
 }
@@ -72,7 +70,7 @@ function moveLayers(event: PointerEvent<HTMLAnchorElement>) {
 }
 
 function resetLayers(event: PointerEvent<HTMLAnchorElement>) {
-  const isReadingProject = event.currentTarget.dataset.projectKind === 'workshop';
+  const isReadingProject = event.currentTarget.dataset.projectKind === 'yiliu';
   event.currentTarget.style.setProperty('--pointer-x', '0px');
   event.currentTarget.style.setProperty('--pointer-y', '0px');
   event.currentTarget.style.setProperty('--cursor-x', isReadingProject ? '34%' : '50%');
@@ -80,7 +78,7 @@ function resetLayers(event: PointerEvent<HTMLAnchorElement>) {
 }
 
 export default function ProjectShowcase() {
-  const [activeProject, setActiveProject] = useState<ProjectKey>('workshop');
+  const [activeProject, setActiveProject] = useState<ProjectKey>('yiliu');
   const active = featuredProjects.find((project) => project.key === activeProject) ?? featuredProjects[0];
 
   return (
@@ -92,13 +90,13 @@ export default function ProjectShowcase() {
             href={project.href}
             key={project.key}
             data-project-kind={project.key}
-            onClick={() => setActiveProject(project.key)}
+            onClick={project.key === 'yiliu' ? () => setActiveProject(project.key) : undefined}
             onPointerLeave={resetLayers}
             onPointerMove={moveLayers}
           >
             <div className={styles.cardTopline}>
               <span>{project.number} / {project.label}</span>
-              <span>READ ↓</span>
+              <span>OPEN ↗</span>
             </div>
 
             <div
@@ -113,7 +111,7 @@ export default function ProjectShowcase() {
                   <i className={styles.readingCursor} />
                 </>
               ) : (
-                <ProductionBoard />
+                <MusicBoard />
               )}
             </div>
 
@@ -128,7 +126,7 @@ export default function ProjectShowcase() {
       <article className={styles.projectDetail} id="project-detail" aria-live="polite">
         <span>{active.number}</span>
         <div>
-          <p>{active.label} / CURRENT RECORD</p>
+          <p>{active.label} / SELECTED</p>
           <h3>{active.title}</h3>
           <p>{active.detail}</p>
         </div>
