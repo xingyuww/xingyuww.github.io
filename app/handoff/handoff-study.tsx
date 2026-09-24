@@ -10,8 +10,8 @@ export default function HandoffStudy() {
         <p>PERSONAL SITE / 2026</p>
         <nav aria-label="主导航">
           <a href="#about">关于</a>
-          <a href="#work">作品</a>
-          <a href="#contact">联系</a>
+          <a href="#work">记录</a>
+          <a href="#explorations">内容</a>
         </nav>
         <span>{profile.location}</span>
       </header>
@@ -55,15 +55,15 @@ export default function HandoffStudy() {
         <div className={styles.bottomLine} aria-hidden="true">
           <span>01 / QUESTION &amp; POSITION</span>
           <i />
-          <span>NEXT / PROJECTS ↓</span>
+          <span>NEXT / CURRENT RECORDS ↓</span>
         </div>
       </section>
 
       <section className={styles.works} id="work" aria-labelledby="works-title">
         <div className={styles.worksIntro}>
-          <p className={styles.sectionMarker}>03 / SELECTED PROJECTS</p>
-          <h2 id="works-title">主要项目</h2>
-          <p className={styles.worksNote}>“忆流”与音乐开发项目使用各自的交互语言；未确定资料保留为空位。</p>
+          <p className={styles.sectionMarker}>03 / CURRENT RECORDS</p>
+          <h2 id="works-title">近期记录</h2>
+          <p className={styles.worksNote}>这里只放少量已经能够说明问题、过程和阶段结果的内容；它们仍是原型，不被包装成成熟产品。</p>
         </div>
 
         <ProjectShowcase />
@@ -71,8 +71,8 @@ export default function HandoffStudy() {
 
       <section className={styles.explorations} id="explorations" aria-labelledby="explorations-title">
         <div>
-          <p className={styles.sectionMarker}>04 / OTHER EXPLORATIONS</p>
-          <h2 id="explorations-title">其他探索</h2>
+          <p className={styles.sectionMarker}>04 / NOTES &amp; PRACTICE</p>
+          <h2 id="explorations-title">内容与练习</h2>
         </div>
         <div className={styles.explorationIndex}>
           {explorations.map((exploration) => (
