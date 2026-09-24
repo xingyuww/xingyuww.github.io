@@ -3,9 +3,9 @@ import HandoffStudy from './handoff/handoff-study';
 
 export const metadata: Metadata = {
   title: {
-    absolute: '星语｜文章与个人作品',
+    absolute: '星语｜AI 开发与探索',
   },
-  description: '星语的个人网站，整理文章、视频文字稿与个人壁纸。',
+  description: '星语的个人网站，关注 AI 时代人与 AI 如何共同发展，并在协作中建立更高的专业上限。',
   alternates: {
     canonical: '/',
   },
