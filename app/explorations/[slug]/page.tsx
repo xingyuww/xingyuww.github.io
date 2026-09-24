@@ -35,13 +35,13 @@ export default async function ExplorationPage({ params }: ExplorationPageProps) 
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-        <Link href="/#explorations">← 返回内容与练习</Link>
+        <Link href="/#explorations">← 返回文章与壁纸</Link>
         <span>{exploration.number} / {exploration.label}</span>
         <span>星语 / 2026</span>
       </header>
 
       <section className={styles.hero} aria-labelledby="exploration-title">
-        <p>{exploration.number} / CONTENT NOTE</p>
+        <p>{exploration.number} / PERSONAL ARCHIVE</p>
         <h1 id="exploration-title">{exploration.title}</h1>
         <div className={styles.summary}>
           <strong>{exploration.note}</strong>
@@ -60,7 +60,7 @@ export default async function ExplorationPage({ params }: ExplorationPageProps) 
       </section>
 
       <footer className={styles.footer}>
-        <Link href="/#explorations">返回内容与练习</Link>
+        <Link href="/#explorations">返回文章与壁纸</Link>
         <span>MORE TO FOLLOW</span>
       </footer>
     </main>
