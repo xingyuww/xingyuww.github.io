@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import styles from './handoff.module.css';
-import ProjectShowcase from './project-showcase';
 import { explorations, profile } from '@/content/site-content';
 
 export default function HandoffStudy() {
@@ -10,8 +9,8 @@ export default function HandoffStudy() {
         <p>PERSONAL SITE / 2026</p>
         <nav aria-label="主导航">
           <a href="#about">关于</a>
-          <a href="#work">记录</a>
-          <a href="#explorations">内容</a>
+          <a href="/explorations/articles">文章</a>
+          <a href="/explorations/wallpapers">壁纸</a>
         </nav>
         <span>{profile.location}</span>
       </header>
@@ -53,26 +52,16 @@ export default function HandoffStudy() {
         </div>
 
         <div className={styles.bottomLine} aria-hidden="true">
-          <span>01 / QUESTION &amp; POSITION</span>
+          <span>01 / ABOUT</span>
           <i />
-          <span>NEXT / CURRENT RECORDS ↓</span>
+          <span>NEXT / ARTICLES &amp; WALLPAPERS ↓</span>
         </div>
-      </section>
-
-      <section className={styles.works} id="work" aria-labelledby="works-title">
-        <div className={styles.worksIntro}>
-          <p className={styles.sectionMarker}>03 / CURRENT RECORDS</p>
-          <h2 id="works-title">近期记录</h2>
-          <p className={styles.worksNote}>这里只放少量已经能够说明问题、过程和阶段结果的内容；它们仍是原型，不被包装成成熟产品。</p>
-        </div>
-
-        <ProjectShowcase />
       </section>
 
       <section className={styles.explorations} id="explorations" aria-labelledby="explorations-title">
         <div>
-          <p className={styles.sectionMarker}>04 / NOTES &amp; PRACTICE</p>
-          <h2 id="explorations-title">内容与练习</h2>
+          <p className={styles.sectionMarker}>02 / WRITING &amp; IMAGES</p>
+          <h2 id="explorations-title">文章与壁纸</h2>
         </div>
         <div className={styles.explorationIndex}>
           {explorations.map((exploration) => (
@@ -86,7 +75,7 @@ export default function HandoffStudy() {
         </div>
       </section>
 
-      <footer className={styles.footer} id="contact">
+      <footer className={styles.footer}>
         <span>{profile.displayName} / 2026</span>
       </footer>
     </main>
